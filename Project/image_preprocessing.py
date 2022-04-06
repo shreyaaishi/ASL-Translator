@@ -32,10 +32,10 @@ for i, img_path in tqdm(enumerate(img_paths), total=len(img_paths)):
     for j in range(args['num_images']):
         rand_idx = random.randint(0,2999)
         image = cv2.imread(os.path.join(HOME, DATASET, img_path, images[rand_idx]))
-        cv2.imwrite(os.path.join(dest_path, f'{img_path}{22}.jpg'), image)
         image = cv2.resize(image, (224, 224))
         image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-        if not cv2.imwrite(os.path.join(dest_path, f'{img_path}{j}.jpg'), image):
+        if not cv2.imwrite(os.path.join(dest_path, f'{img_path}{j+1000}.jpg'), image):
             raise Exception("Could not write image")
+
 
 print('DONE')
