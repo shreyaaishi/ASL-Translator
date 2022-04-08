@@ -2,15 +2,16 @@ import torch
 import torch.nn as nn
 import joblib
 import cv2
+import numpy as np
 import neuralnet
 
 # load label binarizer
-lb = joblib.load(r'C:\Users\Shreya Basu\Workspace\ASL-Translator\Project\outputs\lb.pkl')
+lb = joblib.load(r'..\Project\outputs\lb.pkl')
 
 # load classification model
 device = torch.device('cpu')
 model = neuralnet.NeuralNet(nn.CrossEntropyLoss(), 0.001)
-model.load_state_dict(torch.load(r'C:\Users\Shreya Basu\Workspace\ASL-Translator\Project\outputs\model.pth', map_location=device))
+model.load_state_dict(torch.load(r'..\Project\outputs\model.pth', map_location=device))
 #print(model)
 print('Model loaded')
 
