@@ -1,5 +1,6 @@
 # input data and models
 img_data/
+preprocessed_images.zip
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
